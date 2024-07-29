@@ -245,7 +245,7 @@ void DisplayScene::displayItem(const TDF_Label&               label,
 
     if ( !brepConnected.IsNull() )
     {
-      brepConnected->SetDisplayMode         ( AIS_Shaded );
+      brepConnected->SetDisplayMode         ( AIS_WireFrame );
       brepConnected->SetLocalTransformation ( parentTrsf.Transformation() );
       try
       {

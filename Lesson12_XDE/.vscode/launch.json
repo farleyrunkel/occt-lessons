@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C++ Launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/Debug/Lesson_12_XDE.exe", // 可执行文件的路径
+            "args": ["C:/Users/95439/Documents/Visual Studio Code/occt-lessons/Lesson12_XDE/data/chassis.step"], // 可执行文件的参数
+            "stopAtEntry": false, // 是否在程序入口处停止
+            "cwd": "${workspaceFolder}/build", // 工作目录
+            "environment": [], // 环境变量
+            "externalConsole": false, // 是否在外部控制台中打开
+        }
+    ]
+}

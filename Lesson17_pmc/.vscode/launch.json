@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/Debug/Lesson_17_pmc.exe",
+            "args": ["C:/Users/95439/Documents/Visual Studio Code/occt-lessons/Lesson23_HLR/data/ANC101.brep"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "CMake: build",
+        }
+    ]
+}

@@ -3,6 +3,9 @@ cmake_minimum_required (VERSION 3.6 FATAL_ERROR)
 # Project name
 project(Lesson23_HLR CXX)
 
+# Set the directory where OpenCASCADE is installed
+set(OpenCASCADE_DIR "C:/Dependencies/occt-7.8-vc14-64/cmake")
+
 # OpenCascade
 find_package(OpenCASCADE)
 

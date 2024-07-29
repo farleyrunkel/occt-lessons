@@ -46,8 +46,9 @@ class TDocStd_Document;
 
 //! Type alias for label-presentation map.
 typedef NCollection_DataMap<TDF_Label,
-                            NCollection_List<Handle(AIS_InteractiveObject)>,
-                            TDF_LabelMapHasher> LabelPrsMap;
+                            NCollection_List<Handle(AIS_InteractiveObject)>
+                           // , TDF_LabelMapHasher
+                           >  LabelPrsMap;
 
 //! Redisplays all objects in the viewer.
 class DisplayScene : public Standard_Transient

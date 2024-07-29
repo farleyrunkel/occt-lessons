@@ -1,31 +1,6 @@
 //-----------------------------------------------------------------------------
-// Created on: 24 August 2017
-//-----------------------------------------------------------------------------
-// Copyright (c) 2017, Sergey Slyadnev (sergey.slyadnev@gmail.com)
+// Copyright (c) 2020-present, Quaoar Studio
 // All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are met:
-//
-//    * Redistributions of source code must retain the above copyright
-//      notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above copyright
-//      notice, this list of conditions and the following disclaimer in the
-//      documentation and/or other materials provided with the distribution.
-//    * Neither the name of the copyright holder(s) nor the
-//      names of all contributors may be used to endorse or promote products
-//      derived from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-// WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-// DISCLAIMED. IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE LIABLE FOR ANY
-// DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-// (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-// ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-// SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //-----------------------------------------------------------------------------
 
 // Own include
@@ -34,8 +9,10 @@
 // OpenCascade includes
 #include <AIS_InteractiveContext.hxx>
 #include <AIS_Shape.hxx>
+#include <AIS_Triangulation.hxx>
 #include <Aspect_DisplayConnection.hxx>
 #include <Aspect_Handle.hxx>
+#include <BRep_Builder.hxx>
 #include <OpenGl_GraphicDriver.hxx>
 #include <V3d_AmbientLight.hxx>
 #include <V3d_DirectionalLight.hxx>
@@ -148,7 +125,25 @@ Viewer::Viewer(const int left,
 
 void Viewer::AddShape(const TopoDS_Shape& shape)
 {
-  m_shapes.push_back(shape);
+  if ( shape.ShapeType() == TopAbs_VERTEX )
+  {
+    // Trick for vertices: just for better performance.
+    if ( m_vertices.IsNull() )
+      BRep_Builder().MakeCompound(m_vertices);
+
+    BRep_Builder().Add(m_vertices, shape);
+  }
+  else
+  {
+    m_shapes.push_back(shape);
+  }
+}
+
+//-----------------------------------------------------------------------------
+
+void Viewer::AddMesh(const Handle(Poly_Triangulation)& mesh)
+{
+  m_meshes.push_back(mesh);
 }
 
 //-----------------------------------------------------------------------------
@@ -156,6 +151,7 @@ void Viewer::AddShape(const TopoDS_Shape& shape)
 //! Starts message loop.
 void Viewer::StartMessageLoop()
 {
+  // Add shapes.
   for ( auto sh : m_shapes )
   {
     Handle(AIS_Shape) shape = new AIS_Shape(sh);
@@ -168,6 +164,22 @@ void Viewer::StartMessageLoop()
     // Activate selection modes.
     m_context->Activate(4, true); // faces
     m_context->Activate(2, true); // edges
+  }
+
+  // Add vertices.
+  {
+    Handle(AIS_Shape) shape = new AIS_Shape(m_vertices);
+    m_context->Display(shape, true);
+  }
+
+  // Add meshes.
+  for ( auto mesh : m_meshes )
+  {
+    // We build AIS_Triangulation here which is maybe not the best option
+    // as I saw it does not apply locations to nodes. Refer to MeshVS
+    // for somewhat better interfaces.
+    Handle(AIS_Triangulation) tris = new AIS_Triangulation(mesh);
+    m_context->Display(tris, true);
   }
 
   MSG Msg;
@@ -342,8 +354,6 @@ LRESULT Viewer::wndProc(HWND   hwnd,
         const double timeStamp = m_evtMgr->EventTime();
         if ( message == WM_KEYDOWN )
         {
-
-          
           m_evtMgr->KeyDown(vkey, timeStamp);
         }
         else

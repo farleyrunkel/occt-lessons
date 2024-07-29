@@ -3,6 +3,10 @@ cmake_minimum_required (VERSION 3.0.0 FATAL_ERROR)
 # Project name
 project (Lesson_12_XDE CXX)
 
+# Set the directory where OpenCASCADE is installed
+set(OpenCASCADE_DIR "C:/Dependencies/occt-7.8-vc14-64/cmake")
+set(VTK_DIR "C:/Dependencies/VTK-6.1.0-vc14-64/lib/cmake/vtk-6.1")
+
 # OpenCascade
 find_package(OpenCASCADE)
 
@@ -19,6 +23,8 @@ add_executable (Lesson_12_XDE
   ViewerInteractor.cpp
   ViewerInteractor.h
 )
+
+message (STATUS "OpenCASCADE_LIBRARIES: ${OpenCASCADE_LIBRARIES}")
 
 # Add linker options
 foreach (LIB ${OpenCASCADE_LIBRARIES})

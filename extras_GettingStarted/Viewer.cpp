@@ -343,7 +343,7 @@ void Viewer::AddMesh(const Handle(Poly_Triangulation)& mesh)
 }
 
 //-----------------------------------------------------------------------------
-
+  
 //! Starts message loop.
 void Viewer::StartMessageLoop()
 {

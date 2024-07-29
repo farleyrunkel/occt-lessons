@@ -57,7 +57,7 @@ int main(int argc, char** argv)
   BRep_Builder bbuilder;
   TopoDS_Shape shape;
   //
-  if ( !BRepTools::Read(shape, "D:/Demos/lessons/Lesson22_modify-shape/data/shell.brep", bbuilder) )
+  if ( !BRepTools::Read(shape, "C:/Users/95439/Documents/Visual Studio Code/occt-lessons/Lesson22_modify-shape/data/shell.brep", bbuilder) )
   {
     std::cout << "Error: cannot read shape from file." << std::endl;
     return 1;
@@ -94,7 +94,7 @@ int main(int argc, char** argv)
     //
     if ( ::IsCircular(innerWire, circProps) )
     {
-      circProps.SetRadius( circProps.Radius() * 4. );
+      circProps.SetRadius( circProps.Radius() * 1.6 );
       ctx->Replace(innerWire, BRepBuilderAPI_MakeWire( BRepBuilderAPI_MakeEdge( new Geom_Circle(circProps) ) ));
     }
   }

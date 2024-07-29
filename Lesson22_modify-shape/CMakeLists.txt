@@ -1,7 +1,9 @@
-cmake_minimum_required (VERSION 3.0.0 FATAL_ERROR)
+cmake_minimum_required (VERSION 3.9.0 FATAL_ERROR)
 
 # Project name
 project (Lesson_22_modify-shape CXX)
+# Set the directory where OpenCASCADE is installed
+set(OpenCASCADE_DIR "C:/Dependencies/occt-7.8-vc14-64/cmake")
 
 # Enable C++17
 set(CMAKE_CXX_STANDARD 17)

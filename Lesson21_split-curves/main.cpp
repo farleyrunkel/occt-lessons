@@ -67,7 +67,7 @@ int main(int argc, char** argv)
   Viewer vout(50, 50, 500, 500);
 
   TopoDS_Shape sh;
-  if ( !LoadIGES("D:/Demos/lessons/Lesson21_split-curves/data/klp1.igs", sh) )
+  if ( !LoadIGES("C:/Users/95439/Documents/Visual Studio Code/occt-lessons/Lesson21_split-curves/data/klp1.igs", sh) )
     return 1;
 
   TopTools_ListOfShape args;
