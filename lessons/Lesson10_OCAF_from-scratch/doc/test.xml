@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document format="XmlOcaf" xmlns="http://www.opencascade.org/OCAF/XML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opencascade.org/OCAF/XML">
- <info date="2024-07-29" schemav="0" DocVersion="12" objnb="1">
+<document format="XmlOcaf" xmlns="http://www.opencascade.org/OCAF/XML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opencascade.org/OCAF/XML E:\Sources\OCCT-7_9_0/src/XmlOcafResource/XmlOcaf.xsd">
+ <info date="2025-02-24" schemav="0" DocVersion="12" objnb="2">
   <iitem>Copyright: Open Cascade, 2001-2002</iitem>
   <iitem>REFERENCE_COUNTER: 0</iitem>
   <iitem>MODIFICATION_COUNTER: 1</iitem>
@@ -8,7 +8,8 @@
  <comments/>
  <label tag="0">
   <label tag="1">
-   <TDataStd_Integer id="1">199</TDataStd_Integer>
+   <TDF_TagSource id="1">1</TDF_TagSource>
+   <TDataStd_Integer id="2">199</TDataStd_Integer>
   </label>
  </label>
  <shapes/>
