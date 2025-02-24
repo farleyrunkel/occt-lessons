@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
-// Created on: 15 October 2021
+// Created on: 24 August 2017
 //-----------------------------------------------------------------------------
-// Copyright (c) 2021, Sergey Slyadnev (sergey.slyadnev@gmail.com)
+// Copyright (c) 2017, Sergey Slyadnev (sergey.slyadnev@gmail.com)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -28,31 +28,87 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //-----------------------------------------------------------------------------
 
-// Qt includes
-#include <QApplication>
-#include <QHBoxLayout>
-#include <QMainWindow>
+#pragma once
 
-// Sample includes
-#include "ViewerWidget.h"
+#ifdef _WIN32
+#include <Windows.h>
+#endif
 
-int main(int argc, char** argv)
+// Local includes
+#include "ViewerInteractor.h"
+
+// OpenCascade includes
+#include <TopoDS_Shape.hxx>
+#include <WNT_Window.hxx>
+
+// Standard includes
+#include <vector>
+
+class V3d_Viewer;
+class V3d_View;
+class AIS_InteractiveContext;
+class AIS_ViewController;
+
+//-----------------------------------------------------------------------------
+
+//! Simple 3D viewer.
+class Viewer
 {
-  QApplication app(argc, argv);
+public:
 
-  QMainWindow* mainWindow = new QMainWindow();
-  mainWindow->setWindowTitle("QUAOAR Workshop / Lessons / OpenCascade with Qt Widgets");
+  Viewer(const int left,
+         const int top,
+         const int width,
+         const int height);
 
-  QWidget* centralWidget = new QWidget(mainWindow);
-  mainWindow->setCentralWidget(centralWidget);
-  QHBoxLayout* hLayout = new QHBoxLayout(centralWidget);
-  hLayout->setMargin(6);
+public:
 
-  ViewerWidget* viewer = new ViewerWidget(centralWidget);
-  hLayout->addWidget(viewer);
+  Viewer& operator<<(const TopoDS_Shape& shape)
+  {
+    this->AddShape(shape);
+    return *this;
+  }
 
-  mainWindow->resize(900, 600);
-  mainWindow->show();
+  void AddShape(const TopoDS_Shape& shape);
 
-  return app.exec();
-}
+  void StartMessageLoop();
+
+private:
+
+  static LRESULT WINAPI
+    wndProcProxy(HWND hwnd,
+                 UINT message,
+                 WPARAM wparam,
+                 LPARAM lparam);
+
+  LRESULT CALLBACK
+    wndProc(HWND hwnd,
+            UINT message,
+            WPARAM wparam,
+            LPARAM lparam);
+
+  void init(const HANDLE& windowHandle);
+
+/* API-related things */
+private:
+
+  std::vector<TopoDS_Shape> m_shapes; //!< Shapes to visualize.
+
+/* OpenCascade's things */
+private:
+
+  Handle(V3d_Viewer)             m_viewer;
+  Handle(V3d_View)               m_view;
+  Handle(AIS_InteractiveContext) m_context;
+  Handle(WNT_Window)             m_wntWindow;
+  Handle(ViewerInteractor)       m_evtMgr;
+
+/* Lower-level things */
+private:
+
+  HINSTANCE m_hInstance; //!< Handle to the instance of the module.
+  HWND      m_hWnd;      //!< Handle to the instance of the window.
+  bool      m_bQuit;     //!< Indicates whether user want to quit from window.
+
+};
+

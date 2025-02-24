@@ -49,6 +49,7 @@ Makefile*
 #
 /test/*.brep
 
-Lesson22_project-curves/build-occt760/
+*build
 
-extras_project-curves/build-occt760/
+CMakePresets.json
+CMakeUserPresets.json

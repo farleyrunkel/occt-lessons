@@ -140,7 +140,7 @@ int main(int argc, char** argv)
   Bnd_Box aabb;
   BRepBndLib::Add(shape, aabb, true); // Use triangulation.
 
-  // Compute the dimensions.
+  // Compute the dimensions. 
   const int    density   = 20;
   gp_XYZ       Pmin      = aabb.CornerMin().XYZ();
   gp_XYZ       Pmax      = aabb.CornerMax().XYZ();

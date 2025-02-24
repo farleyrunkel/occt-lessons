@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document format="XmlOcaf" xmlns="http://www.opencascade.org/OCAF/XML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opencascade.org/OCAF/XML">
+ <info date="2024-07-29" schemav="0" DocVersion="12" objnb="1">
+  <iitem>Copyright: Open Cascade, 2001-2002</iitem>
+  <iitem>REFERENCE_COUNTER: 0</iitem>
+  <iitem>MODIFICATION_COUNTER: 1</iitem>
+ </info>
+ <comments/>
+ <label tag="0">
+  <label tag="1">
+   <TDataStd_Integer id="1">199</TDataStd_Integer>
+  </label>
+ </label>
+ <shapes/>
+</document>

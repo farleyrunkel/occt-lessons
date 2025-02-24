@@ -189,7 +189,6 @@ int main()
   fids1.Add(3);
   fids2.Add(3);
   fids2.Add(4);
-  
   fids2.Add(5);
 
   part3.CreateFeature(fids1);

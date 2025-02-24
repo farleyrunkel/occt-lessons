@@ -1,0 +1,8 @@
+add_subdirectory(Lesson10_OCAF_from-scratch)
+# add_subdirectory(Lesson17_Qt_Widgets)
+add_subdirectory(Lesson18_Select)
+add_subdirectory(Lesson04_HelloOpenCascade)
+add_subdirectory(Lesson07_BRepTools)
+add_subdirectory(Lesson08_Bool)
+add_subdirectory(Lesson11_TNaming)
+  
