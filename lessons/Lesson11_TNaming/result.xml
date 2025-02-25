@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document format="XmlOcaf" xmlns="http://www.opencascade.org/OCAF/XML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opencascade.org/OCAF/XML E:\Sources\OCCT/src/XmlOcafResource/XmlOcaf.xsd">
- <info date="2025-02-24" schemav="0" DocVersion="12" objnb="14">
+ <info date="2025-02-25" schemav="0" DocVersion="12" objnb="16">
   <iitem>Copyright: Open Cascade, 2001-2002</iitem>
   <iitem>REFERENCE_COUNTER: 0</iitem>
   <iitem>MODIFICATION_COUNTER: 1</iitem>
@@ -8,12 +8,14 @@
  <comments/>
  <label tag="0">
   <label tag="1">
-   <TDF_TagSource id="1">3</TDF_TagSource>
+   <TDF_TagSource id="1">4</TDF_TagSource>
    <label tag="1">
-    <TNaming_NamedShape id="2" evolution="primitive">
-     <olds/>
-     <news>
+    <TNaming_NamedShape id="2" evolution="modify" version="1">
+     <olds>
       <shape tshape="+34" index="1"/>
+     </olds>
+     <news>
+      <shape tshape="+34" location="1" index="1"/>
      </news>
     </TNaming_NamedShape>
    </label>
@@ -21,17 +23,17 @@
     <TNaming_NamedShape id="3" evolution="primitive">
      <olds/>
      <news>
-      <shape tshape="+47" location="1" index="1"/>
+      <shape tshape="+47" location="2" index="1"/>
      </news>
     </TNaming_NamedShape>
    </label>
    <label tag="3">
-    <TNaming_NamedShape id="4" evolution="modify">
+    <TNaming_NamedShape id="4" evolution="modify" version="1">
      <olds>
-      <shape tshape="+34" index="1"/>
+      <shape tshape="+51" index="1"/>
      </olds>
      <news>
-      <shape tshape="+51" index="1"/>
+      <shape tshape="+55" index="1"/>
      </news>
     </TNaming_NamedShape>
     <TDF_TagSource id="5">9</TDF_TagSource>
@@ -87,7 +89,7 @@
      <TNaming_NamedShape id="12" evolution="primitive">
       <olds/>
       <news>
-       <shape tshape="-41" location="1" index="1"/>
+       <shape tshape="-41" location="2" index="1"/>
       </news>
      </TNaming_NamedShape>
     </label>
@@ -95,7 +97,7 @@
      <TNaming_NamedShape id="13" evolution="primitive">
       <olds/>
       <news>
-       <shape tshape="-43" location="1" index="1"/>
+       <shape tshape="-43" location="2" index="1"/>
       </news>
      </TNaming_NamedShape>
     </label>
@@ -103,16 +105,24 @@
      <TNaming_NamedShape id="14" evolution="primitive">
       <olds/>
       <news>
-       <shape tshape="+45" location="1" index="1"/>
+       <shape tshape="+45" location="2" index="1"/>
       </news>
      </TNaming_NamedShape>
     </label>
+   </label>
+   <label tag="4">
+    <TNaming_NamedShape id="15" evolution="selected" version="1"/>
+    <TNaming_Naming id="16" nametype="identity" shapetype="face" arguments="6 " index="-1" contextlabel="" orientation="1"/>
    </label>
   </label>
  </label>
  <shapes>
 CASCADE Topology V3, (c) Open Cascade
-Locations 1
+Locations 2
+1
+              1               0               0              10 
+              0               1               0               0 
+              0               0               1               0 
 1
               1               0               0              25 
               0               1               0              25 
@@ -178,7 +188,7 @@ Surfaces 9
 1 0 0 0 0 0 1 1 0 -0 -0 1 0 
 Triangulations 0
 
-TShapes 51
+TShapes 55
 Ve
 1e-07
 0 0 50
@@ -201,7 +211,7 @@ Ed
 0
 
 0101000
--51 0 +50 0 *
+-55 0 +54 0 *
 Ve
 1e-07
 0 50 50
@@ -217,7 +227,7 @@ Ed
 0
 
 0101000
--48 0 +51 0 *
+-52 0 +55 0 *
 Ve
 1e-07
 0 50 0
@@ -233,7 +243,7 @@ Ed
 0
 
 0101000
--48 0 +46 0 *
+-52 0 +50 0 *
 Ed
  1e-07 1 1 0
 1  4 0 0 50
@@ -242,16 +252,16 @@ Ed
 0
 
 0101000
--46 0 +50 0 *
+-50 0 +54 0 *
 Wi
 
 0101100
--49 0 -47 0 +45 0 +44 0 *
+-53 0 -51 0 +49 0 +48 0 *
 Fa
 0  1e-07 1 0
 
 0111000
-+43 0 *
++47 0 *
 Ve
 1e-07
 50 0 50
@@ -274,7 +284,7 @@ Ed
 0
 
 0101000
--41 0 +40 0 *
+-45 0 +44 0 *
 Ve
 1e-07
 50 50 50
@@ -290,7 +300,7 @@ Ed
 0
 
 0101000
--38 0 +41 0 *
+-42 0 +45 0 *
 Ve
 1e-07
 50 50 0
@@ -306,7 +316,7 @@ Ed
 0
 
 0101000
--38 0 +36 0 *
+-42 0 +40 0 *
 Ed
  1e-07 1 1 0
 1  8 0 0 50
@@ -315,16 +325,16 @@ Ed
 0
 
 0101000
--36 0 +40 0 *
+-40 0 +44 0 *
 Wi
 
 0101100
--39 0 -37 0 +35 0 +34 0 *
+-43 0 -41 0 +39 0 +38 0 *
 Fa
 0  1e-07 6 0
 
 0111000
-+33 0 *
++37 0 *
 Ed
  1e-07 1 1 0
 1  9 0 0 50
@@ -333,7 +343,7 @@ Ed
 0
 
 0101000
--40 0 +50 0 *
+-44 0 +54 0 *
 Ed
  1e-07 1 1 0
 1  10 0 0 50
@@ -342,16 +352,16 @@ Ed
 0
 
 0101000
--41 0 +51 0 *
+-45 0 +55 0 *
 Wi
 
 0101100
--31 0 -39 0 +30 0 +49 0 *
+-35 0 -43 0 +34 0 +53 0 *
 Fa
 0  1e-07 2 0
 
 0111000
-+29 0 *
++33 0 *
 Ed
  1e-07 1 1 0
 1  11 0 0 50
@@ -360,7 +370,7 @@ Ed
 0
 
 0101000
--36 0 +46 0 *
+-40 0 +50 0 *
 Ed
  1e-07 1 1 0
 1  12 0 0 50
@@ -369,42 +379,42 @@ Ed
 0
 
 0101000
--38 0 +48 0 *
+-42 0 +52 0 *
 Wi
 
 0101100
--27 0 -35 0 +26 0 +45 0 *
+-31 0 -39 0 +30 0 +49 0 *
 Fa
 0  1e-07 4 0
 
 0111000
-+25 0 *
++29 0 *
 Wi
 
 0101100
--44 0 -27 0 +34 0 +31 0 *
+-48 0 -31 0 +38 0 +35 0 *
 Fa
 0  1e-07 5 0
 
 0111000
-+23 0 *
++27 0 *
 Wi
 
 0101100
--47 0 -26 0 +37 0 +30 0 *
+-51 0 -30 0 +41 0 +34 0 *
 Fa
 0  1e-07 3 0
 
 0111000
-+21 0 *
++25 0 *
 Sh
 
 0101100
--42 0 +32 0 -28 0 +24 0 -22 0 +20 0 *
+-46 0 +36 0 -32 0 +28 0 -26 0 +24 0 *
 So
 
 1100000
-+19 0 *
++23 0 *
 Ve
 1e-07
 10 -2.44929359829471e-15 30
@@ -420,7 +430,7 @@ Ed
 0
 
 0101000
-+17 0 -17 0 *
++21 0 -21 0 *
 Ve
 1e-07
 10 -2.44929359829471e-15 0
@@ -435,7 +445,7 @@ Ed
 0
 
 0101000
--17 0 +15 0 *
+-21 0 +19 0 *
 Ed
  1e-07 1 1 0
 1  15 0 0 6.28318530717959
@@ -444,50 +454,66 @@ Ed
 0
 
 0101000
-+15 0 -15 0 *
++19 0 -19 0 *
 Wi
 
 0101100
--16 0 +14 0 +13 0 -14 0 *
+-20 0 +18 0 +17 0 -18 0 *
 Fa
 0  1e-07 7 0
 
 0111000
-+12 0 *
++16 0 *
 Wi
 
 0101100
-+16 0 *
++20 0 *
 Fa
 0  1e-07 8 0
 
 0111000
-+10 0 *
++14 0 *
 Wi
 
 0101100
--13 0 *
+-17 0 *
 Fa
 0  1e-07 9 0
 
 0111000
--8 0 *
+-12 0 *
 Sh
 
 0101100
-+11 0 +9 0 -7 0 *
++15 0 +13 0 -11 0 *
 So
 
 0100000
++10 0 *
+Sh
+
+0101100
+-46 0 -32 0 +24 0 +28 0 -26 0 +36 0 *
+Sh
+
+0101100
+-15 2 -13 2 +11 2 *
+So
+
+0100000
++8 0 +7 0 *
+Co
+
+1100000
 +6 0 *
 Sh
 
 0101100
--42 0 -28 0 +20 0 +24 0 -22 0 +32 0 *
+-46 1 -32 1 +24 1 +28 1 -26 1 +36 1 *
 Sh
 
 0101100
--11 1 -9 1 +7 1 *
+-15 2 -13 2 +11 2 *
 So
 
 0100000
