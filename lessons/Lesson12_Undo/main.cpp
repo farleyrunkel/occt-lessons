@@ -14,8 +14,7 @@
 
 #include "TOcafFunction_BoxDriver.h"
 
-void addBoxToDoc(Handle(TDocStd_Document)myOcafDoc, std::ostream& myResult
-)
+void addBoxToDoc(Handle(TDocStd_Document)myOcafDoc, std::ostream& myResult)
 {
     // Open a new command (for undo)
     myOcafDoc->NewCommand();
@@ -57,7 +56,7 @@ void addBoxToDoc(Handle(TDocStd_Document)myOcafDoc, std::ostream& myResult
     Handle(TFunction_Driver) myBoxDriver;
     // Find the TOcafFunction_BoxDriver in the TFunction_DriverTable using its GUID
     if (!TFunction_DriverTable::Get()->FindDriver(TOcafFunction_BoxDriver::GetID(), myBoxDriver)) {
-        myResult << "Ocaf Box driver not found" << std::endl; 
+        myResult << "Ocaf Box driver not found" << std::endl;
     }
 
     myBoxDriver->Init(aLabel);
@@ -80,6 +79,17 @@ void addBoxToDoc(Handle(TDocStd_Document)myOcafDoc, std::ostream& myResult
     myResult << "width: " << aBoxWidth << " length: " << aBoxLength << " height: " << aBoxHeight << std::endl;
 }
 
+void doUndo(Handle(TDocStd_Document)myOcafDoc, std::ostream& myResult)
+{
+    if (myOcafDoc->Undo()) {
+        myOcafDoc->CommitCommand();
+        //myContext->UpdateCurrentViewer();
+        myResult << "Undo was done successfully" << std::endl;
+    }
+    else {
+        myResult << "Nothing to undo" << std::endl;
+    }
+}
 
 int main()
 {
@@ -94,8 +104,7 @@ int main()
     Handle(TDocStd_Document) doc;
     app->NewDocument("XmlOcaf", doc);
     //
-    if (doc.IsNull())
-    {
+    if (doc.IsNull()) {
         std::cout << "Error: cannot create an OCAF document." << std::endl;
         return 1;
     }
@@ -110,15 +119,14 @@ int main()
     // Create a new label in the data structure for the box
     TDF_Label aLabel = TDF_TagSource::NewChild(doc->Main());
 
-
     TDataStd_Integer::Set(mainLab, 199);
 
     addBoxToDoc(doc, std::cout);
+    //doUndo(doc, std::cout);
 
-    PCDM_StoreStatus sstatus = app->SaveAs(doc, "E:/Documents/occt-lessons/lessons/Lesson10_OCAF_from-scratch/doc/test.xml");
+    PCDM_StoreStatus sstatus = app->SaveAs(doc, "E:/Documents/occt-lessons/lessons/Lesson12_Undo/result.xml");
     //
-    if (sstatus != PCDM_SS_OK)
-    {
+    if (sstatus != PCDM_SS_OK) {
         app->Close(doc);
 
         std::cout << "Cannot write OCAF document." << std::endl;

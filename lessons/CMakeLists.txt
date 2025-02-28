@@ -5,4 +5,5 @@ add_subdirectory(Lesson04_HelloOpenCascade)
 add_subdirectory(Lesson07_BRepTools)
 add_subdirectory(Lesson08_Bool)
 add_subdirectory(Lesson11_TNaming)
+add_subdirectory(Lesson12_Undo)
   

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document format="XmlOcaf" xmlns="http://www.opencascade.org/OCAF/XML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opencascade.org/OCAF/XML E:\Sources\OCCT/src/XmlOcafResource/XmlOcaf.xsd">
- <info date="2025-02-27" schemav="0" DocVersion="12" objnb="13">
+ <info date="2025-02-28" schemav="0" DocVersion="12" objnb="13">
   <iitem>Copyright: Open Cascade, 2001-2002</iitem>
   <iitem>REFERENCE_COUNTER: 0</iitem>
   <iitem>MODIFICATION_COUNTER: 1</iitem>

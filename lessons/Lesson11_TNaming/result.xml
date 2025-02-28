@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document format="XmlOcaf" xmlns="http://www.opencascade.org/OCAF/XML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opencascade.org/OCAF/XML E:\Sources\OCCT/src/XmlOcafResource/XmlOcaf.xsd">
- <info date="2025-02-25" schemav="0" DocVersion="12" objnb="16">
+ <info date="2025-02-28" schemav="0" DocVersion="12" objnb="16">
   <iitem>Copyright: Open Cascade, 2001-2002</iitem>
   <iitem>REFERENCE_COUNTER: 0</iitem>
   <iitem>MODIFICATION_COUNTER: 1</iitem>
@@ -111,7 +111,14 @@
     </label>
    </label>
    <label tag="4">
-    <TNaming_NamedShape id="15" evolution="selected" version="1"/>
+    <TNaming_NamedShape id="15" evolution="selected">
+     <olds>
+      <shape tshape="-10" index="1"/>
+     </olds>
+     <news>
+      <shape tshape="-10" index="1"/>
+     </news>
+    </TNaming_NamedShape>
     <TNaming_Naming id="16" nametype="identity" shapetype="face" arguments="6 " index="-1" contextlabel="" orientation="1"/>
    </label>
   </label>
